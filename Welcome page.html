@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neon Glow In</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: "Poppnis", sans-serif;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #fefefe, #f7e9ff, #ffe8e8);
+      color: #111111;
+    }
+    .wrapper {
+      width: 400px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 18px;
+      padding: 35px 30px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0px 0px 35px rgba(255, 118, 172, 0.45),
+        0 0 35px rgba(158, 118, 255, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 600;
+      text-shadow: 0 0 9px rgba(255, 118, 172, 0.8);
+      color: #df00ff;
+    }
+    .input-box {
+      position: relative;
+      margin: 16px 0;
+    }
+    .input-box input {
+      width: 100%;
+      padding: 13px 14px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      outline: none;
+      color: #333;
+      font-size: 18px;
+      box-shadow: 0 0 6px rgba(255, 118, 172, 0.15);
+      border-top: none;
+    }
+    .input-box input:focus {
+      border-color: #ff6fff;
+      box-shadow: 0 0 12px rgba(255, 172, 255, 0.8);
+    }
+    .input-box label {
+      position: absolute;
+      top: 40%;
+      left: 15px;
+      transform: translateY((-50%));
+      color: #777;
+      pointer-events: none;
+      transition: 0.3s;
+    }
+
+    .input-box input:focus ~ label,
+    .input-box input:valid ~ label {
+      top: -7.2px;
+      font-size: 15px;
+      color: #df00ff;
+    }
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      outline: none;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #fc0fc0, #8f00ff);
+      color: #fff;
+      margin-top: 10px;
+      box-shadow: 0 0 15px rgba(255, 172, 255, 0.8);
+      transition: 0.3 ease;
+    }
+    .btn:hover {
+      box-shadow: 0 0 25px rgba(255, 118, 172, 0.8),
+        0 0 20px rgba(158, 118, 255, 0.8);
+      transform: scale(1.03);
+    }
+    .toggle-text {
+      text-align: center;
+      margin-top: 15px;
+      color: #777;
+      font-size: 14px;
+    }
+    .toggle-text a {
+      color: #df00ff;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    #signupBox {
+      display: none;
+    }
+  </style>
+  <body>
+    <div class="wrapper">
+      <div id="signinBox">
+        <h2>Welcome Back</h2>
+        <div class="input-box">
+          <input type="text" required />
+          <label>Email Address</label>
+        </div>
+        <div class="input-box">
+          <input type="password" required />
+          <label>Password</label>
+        </div>
+        <button class="btn">Sign In</button>
+        <div class="toggle-text">
+          Don't have an accont ?<a onclick="toggleForm()">Sign Up</a>
+        </div>
+      </div>
+      <div id="signupBox">
+        <h2>Create Account</h2>
+        <div class="input-box">
+          <input type="text" required />
+          <label>Full Name</label>
+        </div>
+        <div class="input-box">
+          <input type="text" required />
+          <label>Email Address</label>
+        </div>
+        <div class="input-box">
+          <input type="password" required />
+          <label>Create Password</label>
+        </div>
+        <button class="btn">Register</button>
+        <div class="toggle-text">
+          Already have an account ? <a onclick="toggleForm()">Sign In</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      function toggleForm() {
+        const signIn = document.getElementById("signinBox");
+        const signUp = document.getElementById("signupBox");
+        signIn.style.display =
+          signIn.style.display === "none" ? "block" : "none";
+        signUp.style.display =
+          signUp.style.display === "block" ? "none" : "block";
+      }
+    </script>
+  </body>
+</html>
